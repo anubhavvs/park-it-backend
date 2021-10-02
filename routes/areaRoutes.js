@@ -1,15 +1,20 @@
 import express from 'express';
-import { deleteSlot, getAreas, getSlots, updateArea } from '../controllers/areaController.js';
+import { deleteArea, getAreas, getSlots, updateArea, addArea, updateSlot } from '../controllers/areaController.js';
 import { protect, admin } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/all', protect, getAreas);
+router
+    .route('/')    
+    .get(protect, getAreas)
+    .post(protect, admin, addArea);
 router
     .route('/:id')
-    .get( protect, getSlots)
+    .get(protect, getSlots)
     .put(protect, admin, updateArea)
-
-router.delete('/:id/:slotId', protect, admin, deleteSlot);
+    .delete(protect, admin, deleteArea);
+router
+    .route('/:id/slot/:slotName')
+    .put(protect, admin, updateSlot);
 
 export default router;
