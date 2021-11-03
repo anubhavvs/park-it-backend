@@ -20,6 +20,7 @@ const areas = [
                 filled: true
             }
         ],
+        price: 100,
         numSlots: 4
     },
     {
@@ -35,6 +36,7 @@ const areas = [
                 filled: true
             }
         ],
+        price: 20,
         numSlots: 3
     },
     {
@@ -46,6 +48,7 @@ const areas = [
                 filled: false
             }
         ],
+        price: 500,
         numSlots: 1
     }
 ];

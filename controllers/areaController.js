@@ -32,6 +32,7 @@ const updateArea = asyncHandler(async(req, res) => {
     if (area) {
         area.name = req.body.name || area.name;
         area.city = req.body.city || area.city;
+        area.price = req.body.price || area.price;
         if(req.body.numSlots && req.body.numSlots > area.numSlots) {
             for(let i=area.numSlots+1; i<=req.body.numSlots; i++){
                 area.slots.push({
@@ -71,7 +72,8 @@ const addArea = asyncHandler(async(req, res) => {
     const {
         name,
         city,
-        numSlots
+        numSlots,
+        price
     } = req.body;
 
     if(name && city && numSlots) {
@@ -79,7 +81,8 @@ const addArea = asyncHandler(async(req, res) => {
             name: name,
             city: city,
             slots: [],
-            numSlots: numSlots
+            numSlots: numSlots,
+            price: price
         });
 
         for(let i=1; i<=numSlots; i++) {
