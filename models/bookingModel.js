@@ -20,8 +20,25 @@ const bookingSchema = mongoose.Schema(
             required: true
         },
         price: {
-            type: Number
-        }
+            type: Number,
+            default: null
+        },
+        slotTime: {
+            type: String,
+            required: true
+        },
+        startTime: {
+            type: Date,
+            default: null
+        },
+        endTime: {
+            type: Date,
+            default: null
+        },
+        paid: {
+            type: Boolean,
+            default: false
+        },
     },
     {
         timestamps: true
