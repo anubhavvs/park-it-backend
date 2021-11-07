@@ -3,6 +3,7 @@ import users from './data/users.js';
 import areas from './data/areas.js';
 import User from './models/userModel.js';
 import Area from './models/areaModel.js';
+import Booking from './models/bookingModel.js';
 import connectDB from './config/db.js';
 
 dotenv.config();
@@ -29,6 +30,7 @@ const destroyData = async () => {
     try {
         await User.deleteMany();
         await Area.deleteMany();
+        await Booking.deleteMany();
 
         console.log('Data destroyed!');
         process.exit();
