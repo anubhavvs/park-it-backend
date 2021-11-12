@@ -65,8 +65,8 @@ const deleteArea = asyncHandler(async(req, res) => {
     }
 });
 
-// @desc        Delete a area
-// @route       DELETE /api/areas/
+// @desc        Create a area
+// @route       POST /api/areas/
 // @access      Private/Admin
 const addArea = asyncHandler(async(req, res) => {
     const {

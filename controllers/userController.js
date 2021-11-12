@@ -17,6 +17,7 @@ const authUser = asyncHandler(async(req, res) => {
             number: user.number,
             plate: user.plate,
             isAdmin: user.isAdmin,
+            activeBooking: user.activeBooking,
             token: generateToken(user._id)
         });
     } else {
@@ -54,6 +55,7 @@ const registerUser = asyncHandler(async (req, res) => {
         number: number,
         plate: plate,
         isAdmin: user.isAdmin,
+        activeBooking: user.activeBooking,
         token: generateToken(user._id),
       });
     } else {
@@ -83,7 +85,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
       email: user.email,
       isAdmin: user.isAdmin,
       plate: user.plate,
-      number: user.number
+      number: user.number,
+      activeBooking: user.activeBooking
     });
   } else {
     res.status(404);
@@ -114,6 +117,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       number: updatedUser.number,
       plate: updatedUser.plate,
       isAdmin: updatedUser.isAdmin,
+      activeBooking: user.activeBooking,
       token: generateToken(updatedUser._id),
     });
   } else {

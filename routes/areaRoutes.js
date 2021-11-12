@@ -5,7 +5,7 @@ import { protect, admin } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 router
-    .route('/')    
+    .route('/')
     .get(protect, getAreas)
     .post(protect, admin, addArea);
 router
