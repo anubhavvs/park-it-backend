@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            height: 162px;
+        }
+        tbody {
+            font-size: 1.2rem;
+        }
+        .type {
+            width: 15%;
+            height: 18px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .scope {
+            width: 15%;
+            height: 18px;
+            text-align: center;
+        }
+        .route {
+            width: 25%;
+            height: 18px;
+            padding-left: 2%;
+            text-decoration: underline;
+        }
+        @media screen and (max-width: 1000px) {
+            tbody {
+                font-size: 1rem;
+            }
+            table {
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 1300px) {
+            tbody {
+                font-size: 1.1rem;
+            }
+            table {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Park It ExpressJS server!</h1>
+    <p style="font-size: large;">Here is a small documentation of all the routes of our backend server.</p>
+    <table border="1">
+        <thead>
+            <tr style="height: 18px;">
+                <td style="width: 15%; height: 18px; text-align: center;">Category</td>
+                <td style="width: 15%; height: 18px; text-align: center;">Type</td>
+                <td style="width: 25%; height: 18px; text-align: center;">Route</td>
+                <td style="width: 15%; height: 18px; text-align: center;">Scope</td>
+                <td style="width: 30%; height: 18px; text-align: center;">Function</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="height: 18px;">
+                <td style="width: 15%; height: 126px; text-align: center;" rowspan="8">Users</td>
+                <td class="type">POST</td>
+                <td class="route">/api/users/register</td>
+                <td class="scope">null</td>
+                <td style="width: 30%; height: 18px;">Register a new user</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">POST</td>
+                <td class="route">/api/users/login</td>
+                <td class="scope">null</td>
+                <td style="width: 30%; height: 18px;">Login a existing user</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">GET</td>
+                <td class="route">/api/users/profile</td>
+                <td class="scope">user</td>
+                <td style="width: 30%; height: 18px;">Get the user profile</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">PUT</td>
+                <td class="route">/api/users/profile</td>
+                <td class="scope">user</td>
+                <td style="width: 30%; height: 18px;">Update the user profile</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">POST</td>
+                <td class="route">/api/users/admin</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Register a new admin</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">GET</td>
+                <td class="route">/api/users/all</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">List all the registered users</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">GET</td>
+                <td class="route">/api/users/:id</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Get a user by ID</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">DELETE</td>
+                <td class="route">/api/users/:id</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Delete a user by ID</td>
+            </tr>
+            <tr style="height: 36px;">
+                <td colspan="5"></td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 15%; height: 108px; text-align: center;" rowspan="6">Areas</td>
+                <td class="type">GET</td>
+                <td class="route">/api/areas</td>
+                <td class="scope">user</td>
+                <td style="width: 30%; height: 18px;">Get all the areas</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">GET</td>
+                <td class="route">/api/areas/:id</td>
+                <td class="scope">user</td>
+                <td style="width: 30%; height: 18px;">Get all the slots by the area ID</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">POST</td>
+                <td class="route">/api/areas</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Create a new area</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">PUT</td>
+                <td class="route">/api/areas/:id</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Update a existing area</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">PUT</td>
+                <td class="route">/api/areas/:id/slot/:slotName</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Reverse the slot data</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">DELETE</td>
+                <td class="route">/api/areas/:id</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Delete area by ID</td>
+            </tr>
+            <tr style="height: 36px;">
+                <td colspan="5"></td>
+            </tr>
+            <tr style="height: 18px;">
+                <td style="width: 15%; height: 90px; text-align: center;" rowspan="5">Bookings</td>
+                <td class="type">POST</td>
+                <td class="route">/api/booking/:id/:slotName</td>
+                <td class="scope">user</td>
+                <td style="width: 30%; height: 18px;">Create a new booking</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">GET</td>
+                <td class="route">/api/booking</td>
+                <td class="scope">user</td>
+                <td style="width: 30%; height: 18px;">Get all the bookings of a user</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">GET</td>
+                <td class="route">/api/booking/all</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Get all the bookings</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">GET</td>
+                <td class="route">/api/booking/:id</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Get the booking by ID</td>
+            </tr>
+            <tr style="height: 18px;">
+                <td class="type">PUT</td>
+                <td class="route">/api/booking/:id</td>
+                <td class="scope">admin</td>
+                <td style="width: 30%; height: 18px;">Update a existing booking</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <script>
+        var types = document.querySelectorAll('.type');
+        for (var i = 0; i < types.length; i++) {
+            if(types[i].innerHTML === 'POST') {
+                types[i].style.backgroundColor = '#00ff00';
+            } else if(types[i].innerHTML === 'GET') {
+                types[i].style.backgroundColor = '#0000ff';
+                types[i].style.color = '#ffffff';
+            } else if(types[i].innerHTML === 'PUT') {
+                types[i].style.backgroundColor = '#ff0000';
+                types[i].style.color = '#ffffff';
+            } else if(types[i].innerHTML === 'DELETE') {
+                types[i].style.backgroundColor = '#ff00ff';
+            }
+        }
+    </script> -->
+</body>
+</html>
