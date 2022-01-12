@@ -66,7 +66,24 @@ const getBookings = asyncHandler(async(req, res) => {
 
 const getBooking = asyncHandler(async(req, res) => {
     const id = req.params.id;
-    const booking = await Booking.findOne({user: req.user._id, _id: id});
+    const booking = await Booking.findOne({user: req.user._id, _id: id}).lean();
+    if(booking['startTime']) {
+        booking['startTime'] = new Date(booking['startTime']).toLocaleString('en-US', {
+            timeZone: 'Asia/Calcutta'
+        }).toString();
+    }
+    if(booking['endTime']) {
+        booking['endTime'] = new Date(booking['endTime']).toLocaleString('en-US', {
+            timeZone: 'Asia/Calcutta'
+        }).toString();
+    }
+    booking['createdAt'] = new Date(booking['createdAt']).toLocaleString('en-US', {
+        timeZone: 'Asia/Calcutta'
+    }).toString();
+    booking['updatedAt'] = new Date(booking['updatedAt']).toLocaleString('en-US', {
+        timeZone: 'Asia/Calcutta'
+    }).toString();
+
     if(booking){
         res.json(booking);
     } else {
