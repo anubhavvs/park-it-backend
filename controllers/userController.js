@@ -191,6 +191,47 @@ const createAdmin = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc Change User Booking Status
+// @route PUT /api/user/:id
+// @access Private/Admin
+
+const chnageStatus = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    user.activeBooking = !user.activeBooking;
+
+    const updatedUser = await user.save();
+
+    res.json(updatedUser);
+  } else {
+    res.status(404);
+    throw new Error("User not found.");
+  }
+});
+
+// @desc User Update by Admin
+// @route PUT /api/:id
+// @access Private/Admin
+
+const updateByAdmin = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+
+  if (user) {
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+    user.number = req.body.number || user.number;
+    user.plate = req.body.plate || user.plate;
+
+    const updatedUser = await user.save();
+
+    res.json(updatedUser);
+  } else {
+    res.status(404);
+    throw new Error("User not found.");
+  }
+});
+
 export {
   authUser,
   registerUser,
@@ -200,4 +241,6 @@ export {
   getUserById,
   deleteUser,
   createAdmin,
+  chnageStatus,
+  updateByAdmin,
 };
